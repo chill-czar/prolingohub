@@ -167,7 +167,7 @@ const AssessmentResult = ({ scores, onRetake, onJoinWorkshop }) => {
                     onClick={onJoinWorkshop}
                     className="px-8 py-3 rounded-md bg-redy text-white font-semibold hover:bg-red-700 transition-colors cursor-pointer w-full md:w-auto text-center"
                 >
-                    Join Workshop
+                    Start Learning
                 </button>
             </div>
         </div>
