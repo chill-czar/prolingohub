@@ -36,7 +36,7 @@ const Assessment = ({ onStart, onJoinWorkshop }) => {
           onClick={onJoinWorkshop}
           className="text-redy border border-redy hover:bg-red-50 transition-colors py-3 px-6 md:py-2 md:px-4 rounded-md cursor-pointer w-full md:w-auto text-center"
         >
-          Join Workshop
+          Start Learning
         </button>
       </div>
     </div>
