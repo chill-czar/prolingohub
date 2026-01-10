@@ -50,9 +50,14 @@ export async function GET(request) {
     }
 
     // Don't show availability for past dates
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    if (targetDate < today) {
+    // Don't show availability for past dates (Strict GMT)
+    const now = new Date();
+    const todayUTC = new Date(
+      Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())
+    );
+
+    // targetDate is already parsed as UTC midnight (e.g. 2026-01-10T00:00:00.000Z)
+    if (targetDate < todayUTC) {
       return Response.json({ success: true, data: [] });
     }
 

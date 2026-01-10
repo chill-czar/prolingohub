@@ -25,7 +25,12 @@ export default function PrivateLessonPage() {
       setSelectedTime(null); // Reset selected time when date changes
 
       try {
-        const dateString = selectedDate.toISOString().split("T")[0];
+        // Format date manually to YYYY-MM-DD to avoid timezone shifts
+        // This ensures what the user sees/selects is exactly what is sent to the API
+        const year = selectedDate.getFullYear();
+        const month = String(selectedDate.getMonth() + 1).padStart(2, "0");
+        const day = String(selectedDate.getDate()).padStart(2, "0");
+        const dateString = `${year}-${month}-${day}`;
         const response = await api.get(`/api/availability?date=${dateString}`);
 
         if (response.data.success) {
